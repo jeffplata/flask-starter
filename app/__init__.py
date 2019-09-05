@@ -11,7 +11,7 @@ from flask_user import UserManager, SQLAlchemyAdapter
 
 db = SQLAlchemy()
 
-from app.models import User
+from app.user_models import User
 
 migrate = Migrate()
 mail = Mail()

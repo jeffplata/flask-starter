@@ -7,7 +7,7 @@ from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 
 from app import db
-from app.models import User, Role
+from app.user_models import User, Role
 from flask import current_app
 
 

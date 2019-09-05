@@ -20,8 +20,9 @@ class User(Base, UserMixin):
     confirmed_at = db.Column(db.DateTime())
     is_enabled = db.Column(db.Boolean(), nullable=False, default=False)
 
-    roles = db.relationship('Role', secondary='auth_user_roles')
-
+    roles = db.relationship('Role', secondary='auth_user_roles',
+                            backref=db.backref('users', lazy='dynamic'))
+    
     def __repr__(self):
         return '<User %r>' % (self.username)
 
@@ -53,6 +54,7 @@ class Role(Base):
     __tablename__ = 'auth_role'
     # id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(50), unique=True)
+    label = db.Column(db.Unicode(255), server_default=u'')
 
     def __repr__(self):
         return '<Role %r>' % (self.name)

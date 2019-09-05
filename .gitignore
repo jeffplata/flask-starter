@@ -40,6 +40,8 @@ env
 app.db
 payroll.log*
 run.log*
+logs
 .env
 .flaskenv
 .vscode
+app.sqlite 
